@@ -5,6 +5,7 @@
 @section('content')
     <div class="row h-100 justify-content-center align-items-center">
         <form action="/check" class="col-12">
+            {{ csrf_field() }}
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Введите строку">
             </div>
