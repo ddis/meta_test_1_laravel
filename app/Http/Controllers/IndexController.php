@@ -16,7 +16,7 @@ class IndexController extends Controller
 {
     public function index()
     {
-        echo 1;
+        return view('main');
     }
 
     /**
@@ -26,11 +26,11 @@ class IndexController extends Controller
      */
     public function check(Request $request)
     {
-        $string    = $request->get('string');
+        $string    = $request->get('string', '');
         $validator = new Validator();
 
         try {
-            $response['result'] = $validator->setString($string)->validate();
+            $response['result'] = $validator->setString($string ?? '')->validate();
         } catch (\Exception $exception) {
             $code              = 400;
             $response["error"] = $exception->getMessage();
